@@ -10,13 +10,22 @@ import android.widget.RadioButton;
 import android.widget.TextView;
 
 import com.example.arapp.utils.Commonfunction;
+import com.example.arapp.utils.Constants;
+import com.example.arapp.utils.DataInterface;
+import com.example.arapp.utils.Webservice_Volley;
 
-public class MainActivity extends AppCompatActivity {
+import org.json.JSONObject;
+
+import java.util.HashMap;
+
+public class MainActivity extends AppCompatActivity implements DataInterface {
 
     EditText edt_firstname,edt_lastname,edt_address,edt_email,edt_password,edt_age;
     RadioButton btn_male,btn_female;
     Button btn_signup;
     TextView txt_signup;
+
+    Webservice_Volley volley;
 
 
     @Override
@@ -35,6 +44,8 @@ public class MainActivity extends AppCompatActivity {
         btn_female=(RadioButton)findViewById(R.id.btn_female);
         btn_signup=(Button)findViewById(R.id.btn_signup);
         txt_signup=(TextView)findViewById(R.id.txt_signup);
+
+        volley = new Webservice_Volley(this,this);
 
         btn_signup.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -75,8 +86,27 @@ public class MainActivity extends AppCompatActivity {
                     return;
                 }
 
+                String url = Constants.Webserive_Url+"registration.php";
+                HashMap<String,String> params = new HashMap<>();
+                params.put("F_NAME",edt_firstname.getText().toString());
+                params.put("L_NAME",edt_lastname.getText().toString());
+                params.put("ADDRESS",edt_address.getText().toString());
+                params.put("E_MAIL",edt_email.getText().toString());
+                params.put("PASSWORD",edt_password.getText().toString());
+                params.put("AGE",edt_age.getText().toString());
+                params.put("CLIENT_PIC","");
+                params.put("GENDER","");
+
+                volley.CallVolley(url,params,"registration.php");
+
+
 
             }
         });
             }
+
+    @Override
+    public void getData(JSONObject jsonObject, String tag) {
+
+    }
 }

@@ -10,12 +10,21 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.example.arapp.utils.Commonfunction;
+import com.example.arapp.utils.Constants;
+import com.example.arapp.utils.DataInterface;
+import com.example.arapp.utils.Webservice_Volley;
 
-public class forgetpassword extends AppCompatActivity {
+import org.json.JSONObject;
+
+import java.util.HashMap;
+
+public class forgetpassword extends AppCompatActivity implements DataInterface {
 
     EditText edt_email;
     Button btn_submit;
     TextView txt_forgetpassword;
+
+    Webservice_Volley volley;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +35,9 @@ public class forgetpassword extends AppCompatActivity {
         edt_email=(EditText)findViewById(R.id.edt_email);
         btn_submit=(Button)findViewById(R.id.btn_submit);
         txt_forgetpassword=(TextView)findViewById(R.id.txt_forgetpassword);
+
+
+        volley = new Webservice_Volley(this,this);
 
         btn_submit.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -43,6 +55,16 @@ public class forgetpassword extends AppCompatActivity {
                     return;
                 }
 
+
+                String url = Constants.Webserive_Url+"forgotpsw.php";
+                HashMap<String,String> params = new HashMap<>();
+                params.put("E_MAIL",edt_email.getText().toString());
+
+
+                volley.CallVolley(url,params,"forgotpsw.php");
+
+
+
             }
         });
 
@@ -53,6 +75,11 @@ public class forgetpassword extends AppCompatActivity {
                 startActivity(i);
             }
         });
+
+    }
+
+    @Override
+    public void getData(JSONObject jsonObject, String tag) {
 
     }
 }

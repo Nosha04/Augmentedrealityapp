@@ -9,13 +9,23 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.android.volley.toolbox.Volley;
 import com.example.arapp.utils.Commonfunction;
+import com.example.arapp.utils.Constants;
+import com.example.arapp.utils.DataInterface;
+import com.example.arapp.utils.Webservice_Volley;
 
-public class ResetPassword extends AppCompatActivity {
+import org.json.JSONObject;
+
+import java.util.HashMap;
+
+public class ResetPassword extends AppCompatActivity implements DataInterface {
 
     TextView txt_resetpassword;
     EditText edt_newpassword,edt_confirmpassword;
     Button btn_confirm;
+
+    Webservice_Volley volley;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +37,10 @@ public class ResetPassword extends AppCompatActivity {
         txt_resetpassword=(TextView)findViewById(R.id.txt_resetpassword);
         edt_newpassword=(EditText)findViewById(R.id.edt_newpassword);
         edt_confirmpassword=(EditText)findViewById(R.id.edt_confirmpassword);
+
+
+        volley = new Webservice_Volley(this,this);
+
 
         btn_confirm.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -43,6 +57,17 @@ public class ResetPassword extends AppCompatActivity {
                 }
 
 
+                String url = Constants.Webserive_Url+"resetpsw.php";
+                HashMap<String,String> params = new HashMap<>();
+                params.put("PASSWORD",edt_newpassword.getText().toString());
+                params.put("CLIENT_ID","");
+
+
+                volley.CallVolley(url,params,"resetpsw.php");
+
+
+
+
             }
         });
 
@@ -57,4 +82,9 @@ public class ResetPassword extends AppCompatActivity {
 
 
             }
+
+    @Override
+    public void getData(JSONObject jsonObject, String tag) {
+
+    }
 }

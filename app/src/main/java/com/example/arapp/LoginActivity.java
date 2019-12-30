@@ -9,13 +9,23 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.android.volley.toolbox.Volley;
 import com.example.arapp.utils.Commonfunction;
+import com.example.arapp.utils.Constants;
+import com.example.arapp.utils.DataInterface;
+import com.example.arapp.utils.Webservice_Volley;
 
-public class LoginActivity extends AppCompatActivity {
+import org.json.JSONObject;
+
+import java.util.HashMap;
+
+public class LoginActivity extends AppCompatActivity implements DataInterface {
 
     EditText edt_email,edt_password;
     Button btn_login;
     TextView txt_login,txt_signup,txt_forgetpassword;
+
+    Webservice_Volley volley;
 
 
 
@@ -31,6 +41,10 @@ public class LoginActivity extends AppCompatActivity {
         txt_login=(TextView)findViewById(R.id.txt_login);
         txt_forgetpassword=(TextView)findViewById(R.id.txt_forgetpassword);
         txt_signup=(TextView)findViewById(R.id.txt_signup);
+
+        volley = new Webservice_Volley(this,this);
+
+
 
 
 
@@ -57,6 +71,15 @@ public class LoginActivity extends AppCompatActivity {
                 }
 
 
+                String url = Constants.Webserive_Url+"login.php";
+                HashMap<String,String> params = new HashMap<>();
+                params.put("E_MAIL",edt_email.getText().toString());
+                params.put("PASSWORD",edt_password.getText().toString());
+
+                volley.CallVolley(url,params,"login.php");
+
+
+
             }
         });
 
@@ -75,6 +98,11 @@ public class LoginActivity extends AppCompatActivity {
                 startActivity(i);
             }
         });
+
+    }
+
+    @Override
+    public void getData(JSONObject jsonObject, String tag) {
 
     }
 }
