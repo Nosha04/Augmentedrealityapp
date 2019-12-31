@@ -3,11 +3,14 @@ package com.example.arapp;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.arapp.utils.Commonfunction;
 import com.example.arapp.utils.Constants;
@@ -24,10 +27,12 @@ public class MainActivity extends AppCompatActivity implements DataInterface {
     RadioButton btn_male,btn_female;
     Button btn_signup;
     TextView txt_signup;
+    RadioGroup rg_gender;
 
     Webservice_Volley volley;
 
 
+    String gender="";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,7 +50,19 @@ public class MainActivity extends AppCompatActivity implements DataInterface {
         btn_signup=(Button)findViewById(R.id.btn_signup);
         txt_signup=(TextView)findViewById(R.id.txt_signup);
 
+        rg_gender=(RadioGroup)findViewById(R.id.rg_gender);
+
         volley = new Webservice_Volley(this,this);
+
+        rg_gender.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+
+                RadioButton rb=(RadioButton)findViewById(checkedId);
+                gender= rb.getText().toString();
+
+            }
+        });
 
         btn_signup.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -86,6 +103,13 @@ public class MainActivity extends AppCompatActivity implements DataInterface {
                     return;
                 }
 
+                if (!Commonfunction.checkString(gender))
+                {
+                    Toast.makeText(MainActivity.this, "Please select Gender", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+
                 String url = Constants.Webserive_Url+"registration.php";
                 HashMap<String,String> params = new HashMap<>();
                 params.put("F_NAME",edt_firstname.getText().toString());
@@ -95,7 +119,7 @@ public class MainActivity extends AppCompatActivity implements DataInterface {
                 params.put("PASSWORD",edt_password.getText().toString());
                 params.put("AGE",edt_age.getText().toString());
                 params.put("CLIENT_PIC","");
-                params.put("GENDER","");
+                params.put("GENDER",gender);
 
                 volley.CallVolley(url,params,"registration.php");
 
@@ -107,6 +131,7 @@ public class MainActivity extends AppCompatActivity implements DataInterface {
 
     @Override
     public void getData(JSONObject jsonObject, String tag) {
+        Toast.makeText(this, jsonObject.toString(), Toast.LENGTH_SHORT).show();
 
     }
 }

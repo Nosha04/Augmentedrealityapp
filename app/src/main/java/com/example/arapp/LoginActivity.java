@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.volley.toolbox.Volley;
 import com.example.arapp.utils.Commonfunction;
@@ -103,6 +104,8 @@ public class LoginActivity extends AppCompatActivity implements DataInterface {
 
     @Override
     public void getData(JSONObject jsonObject, String tag) {
+        Toast.makeText(this, jsonObject.toString(), Toast.LENGTH_SHORT).show();
+
 
     }
 }

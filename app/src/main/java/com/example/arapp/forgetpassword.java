@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.arapp.utils.Commonfunction;
 import com.example.arapp.utils.Constants;
@@ -68,18 +69,38 @@ public class forgetpassword extends AppCompatActivity implements DataInterface {
             }
         });
 
-        txt_forgetpassword.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i=new Intent(forgetpassword.this,Verification.class);
-                startActivity(i);
-            }
-        });
+
 
     }
 
     @Override
     public void getData(JSONObject jsonObject, String tag) {
+
+        try {
+
+            Toast.makeText(this, jsonObject.getString("message"), Toast.LENGTH_LONG).show();
+
+            if (jsonObject.getString("response").equalsIgnoreCase("1")) {
+
+                String id  = jsonObject.getString("id");
+                String code  = jsonObject.getString("verificationcode");
+
+                Toast.makeText(this, "code : " + code, Toast.LENGTH_LONG).show();
+
+                Intent i = new Intent(forgetpassword.this,Verification.class);
+                i.putExtra("id",id);
+                i.putExtra("code",code);
+                startActivity(i);
+
+            }
+
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+
+
+
 
     }
 }

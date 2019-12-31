@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.volley.toolbox.Volley;
 import com.example.arapp.utils.Commonfunction;
@@ -27,6 +28,8 @@ public class ResetPassword extends AppCompatActivity implements DataInterface {
 
     Webservice_Volley volley;
 
+    String id ="0";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,6 +41,7 @@ public class ResetPassword extends AppCompatActivity implements DataInterface {
         edt_newpassword=(EditText)findViewById(R.id.edt_newpassword);
         edt_confirmpassword=(EditText)findViewById(R.id.edt_confirmpassword);
 
+        id = getIntent().getStringExtra("id");
 
         volley = new Webservice_Volley(this,this);
 
@@ -60,7 +64,7 @@ public class ResetPassword extends AppCompatActivity implements DataInterface {
                 String url = Constants.Webserive_Url+"resetpsw.php";
                 HashMap<String,String> params = new HashMap<>();
                 params.put("PASSWORD",edt_newpassword.getText().toString());
-                params.put("CLIENT_ID","");
+                params.put("CLIENT_ID",id);
 
 
                 volley.CallVolley(url,params,"resetpsw.php");
@@ -71,13 +75,6 @@ public class ResetPassword extends AppCompatActivity implements DataInterface {
             }
         });
 
-        txt_resetpassword.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i=new Intent(ResetPassword.this,LoginActivity.class);
-                startActivity(i);
-            }
-        });
 
 
 
@@ -85,6 +82,24 @@ public class ResetPassword extends AppCompatActivity implements DataInterface {
 
     @Override
     public void getData(JSONObject jsonObject, String tag) {
+
+        try {
+
+            Toast.makeText(this, jsonObject.getString("message"), Toast.LENGTH_LONG).show();
+
+            if (jsonObject.getString("response").equalsIgnoreCase("1")) {
+
+                Intent i = new Intent(ResetPassword.this,LoginActivity.class);
+                startActivity(i);
+
+                finishAffinity();
+
+            }
+
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
 
     }
 }

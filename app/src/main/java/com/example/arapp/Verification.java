@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.arapp.utils.Commonfunction;
 
@@ -16,6 +17,8 @@ public class Verification extends AppCompatActivity {
     EditText edt_num1,edt_num2,edt_num3,edt_num4;
     Button btn_verify;
     TextView txt_verification;
+
+    String id,code;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,43 +32,41 @@ public class Verification extends AppCompatActivity {
         btn_verify=(Button)findViewById(R.id.btn_verify);
         txt_verification=(TextView)findViewById(R.id.txt_verification);
 
+        id = getIntent().getStringExtra("id");
+        code = getIntent().getStringExtra("code");
 
         btn_verify.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                if (!Commonfunction.checkString(edt_num1.getText().toString()))
+
+                String mycode = edt_num1.getText().toString() + edt_num2.getText().toString() + edt_num3.getText().toString() + edt_num4.getText().toString();
+
+                if (!Commonfunction.checkString(code))
                 {
-                    edt_num1.setError("num1");
+                    Toast.makeText(Verification.this, "Please enter verification code", Toast.LENGTH_SHORT).show();
                     return;
                 }
 
-                if (!Commonfunction.checkString(edt_num2.getText().toString()))
+                if (mycode.equals(code))
                 {
-                    edt_num2.setError("num2");
-                    return;
-                }
+                    Toast.makeText(Verification.this, "Verification code matched.", Toast.LENGTH_SHORT).show();
 
-                if (!Commonfunction.checkString(edt_num3.getText().toString()))
-                {
-                    edt_num3.setError("num3");
-                    return;
-                }
+                    Intent i=new Intent(Verification.this,ResetPassword.class);
+                    i.putExtra("id",id);
+                    startActivity(i);
 
-                if (!Commonfunction.checkString(edt_num4.getText().toString()))
-                {
-                    edt_num4.setError("num4");
-                    return;
                 }
-
+                else{
+                    Toast.makeText(Verification.this, "Invalid verification code", Toast.LENGTH_SHORT).show();
+                }
             }
         });
 
         txt_verification.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i=new Intent(Verification.this,ResetPassword.class);
-                startActivity(i);
+
             }
         });
 
