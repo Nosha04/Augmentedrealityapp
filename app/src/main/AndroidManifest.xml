@@ -15,20 +15,18 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
+        <activity android:name=".profile"></activity>
         <activity android:name=".Complain">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity>
-        <activity android:name=".Feedback"></activity>
-
+        <activity android:name=".Feedback" />
         <activity
             android:name=".applayout"
-            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar">
-        </activity>
+            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"></activity>
         <activity android:name=".Verification" />
         <activity android:name=".ResetPassword" />
         <activity android:name=".forgetpassword" />

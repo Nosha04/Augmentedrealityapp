@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".profile"
+    android:orientation="vertical"
+    android:padding="20dp"
+    android:gravity="center"
+    android:layout_gravity="center"
+    android:paddingBottom="50dp">
+
+
+
+
+    <ImageButton
+        android:id="@+id/imageButton"
+        android:layout_width="86dp"
+        android:layout_height="93dp"
+        android:maxHeight="100dp"
+        android:scaleType="center"
+        android:layout_gravity="center"
+        tools:srcCompat="@tools:sample/avatars"
+        android:layout_marginBottom="100dp"/>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:src="@drawable/nameicon"
+            android:layout_gravity="center"
+            android:layout_marginRight="24dp"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/txt_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Full Name"
+                android:textSize="14sp"
+                android:layout_gravity="left" />
+
+            <TextView
+                android:id="@+id/txt_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Nosha Hirapara"
+                android:layout_gravity="left"
+                android:textColor="@android:color/black"
+                android:textSize="18sp"
+                android:layout_marginTop="5dp"/>
+
+
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+
+    <TextView
+        android:id="@+id/txt_email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="E-mail_ID"
+        android:layout_marginTop="20dp" />
+
+    <TextView
+        android:id="@+id/txt_email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="noshah1698@gmail.com"
+        android:textColor="@android:color/black"
+        android:textSize="18sp"
+        android:layout_marginTop="5dp" />
+
+
+
+    <TextView
+        android:id="@+id/txt_address"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Address"
+        android:layout_marginTop="20dp"
+        android:layout_gravity="left"/>
+
+    <TextView
+        android:id="@+id/txt_address"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Parth Residency"
+        android:layout_marginTop="5dp"
+        android:textColor="@android:color/black"
+        android:textSize="18sp"
+        android:layout_gravity="left"/>
+
+    <TextView
+        android:id="@+id/txt_number"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Phone Number"
+        android:layout_marginTop="20dp"
+        android:layout_gravity="left"/>
+
+    <TextView
+        android:id="@+id/txt_number"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="8980951166"
+        android:layout_marginTop="5dp"
+        android:textColor="@android:color/black"
+        android:textSize="18sp"
+        android:layout_gravity="left"/>
+
+
+
+</LinearLayout>
