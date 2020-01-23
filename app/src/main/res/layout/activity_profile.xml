@@ -28,11 +28,12 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:layout_marginTop="24dp">
 
         <ImageView
-            android:layout_width="32dp"
-            android:layout_height="32dp"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
             android:src="@drawable/nameicon"
             android:layout_gravity="center"
             android:layout_marginRight="24dp"/>
@@ -43,7 +44,6 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/txt_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Full Name"
@@ -68,60 +68,153 @@
     </LinearLayout>
 
 
-
-    <TextView
-        android:id="@+id/txt_email"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="E-mail_ID"
-        android:layout_marginTop="20dp" />
+        android:orientation="horizontal"
+        android:layout_marginTop="24dp">
 
-    <TextView
-        android:id="@+id/txt_email"
+        <ImageView
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:src="@drawable/mail"
+            android:layout_gravity="center"
+            android:layout_marginRight="24dp"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="E-mail_ID"
+                android:textSize="14sp"/>
+
+            <TextView
+                android:id="@+id/txt_email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="noshah1698@gmail.com"
+                android:textColor="@android:color/black"
+                android:textSize="18sp"
+                android:layout_marginTop="5dp" />
+
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="noshah1698@gmail.com"
-        android:textColor="@android:color/black"
-        android:textSize="18sp"
-        android:layout_marginTop="5dp" />
+        android:orientation="horizontal"
+        android:layout_marginTop="24dp">
+
+        <ImageView
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:src="@drawable/address"
+            android:layout_gravity="center"
+            android:layout_marginRight="24dp"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
 
 
-    <TextView
-        android:id="@+id/txt_address"
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Address"
+                android:textSize="14sp"
+                android:layout_gravity="left"/>
+
+            <TextView
+                android:id="@+id/txt_address"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Parth Residency"
+                android:layout_marginTop="5dp"
+                android:textColor="@android:color/black"
+                android:textSize="18sp"
+                android:layout_gravity="left"/>
+
+
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Address"
-        android:layout_marginTop="20dp"
-        android:layout_gravity="left"/>
+        android:orientation="horizontal"
+        android:layout_marginTop="24dp">
 
-    <TextView
-        android:id="@+id/txt_address"
+        <ImageView
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:src="@drawable/call"
+            android:layout_gravity="center"
+            android:layout_marginRight="24dp"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Phone Number"
+                android:layout_gravity="left"
+                android:textSize="14sp"/>
+
+            <TextView
+                android:id="@+id/txt_number"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="8980951166"
+                android:layout_marginTop="5dp"
+                android:textColor="@android:color/black"
+                android:textSize="18sp"
+                android:layout_gravity="left"/>
+
+
+
+
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+
+
+    <Button
+        android:id="@+id/btn_edit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Parth Residency"
-        android:layout_marginTop="5dp"
-        android:textColor="@android:color/black"
-        android:textSize="18sp"
-        android:layout_gravity="left"/>
+        android:text="Edit"
+        android:layout_marginTop="24dp"
+        android:layout_gravity="center"/>
 
-    <TextView
-        android:id="@+id/txt_number"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Phone Number"
-        android:layout_marginTop="20dp"
-        android:layout_gravity="left"/>
 
-    <TextView
-        android:id="@+id/txt_number"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="8980951166"
-        android:layout_marginTop="5dp"
-        android:textColor="@android:color/black"
-        android:textSize="18sp"
-        android:layout_gravity="left"/>
+
+
+
+
 
 
 
