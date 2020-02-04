@@ -23,7 +23,7 @@ import java.util.HashMap;
 
 public class MainActivity extends AppCompatActivity implements DataInterface {
 
-    EditText edt_firstname,edt_lastname,edt_address,edt_email,edt_password,edt_age;
+    EditText edt_firstname,edt_lastname,edt_address,edt_email,edt_password,edt_age,edt_phone;
     RadioButton btn_male,btn_female;
     Button btn_signup;
     TextView txt_signup;
@@ -49,6 +49,8 @@ public class MainActivity extends AppCompatActivity implements DataInterface {
         btn_female=(RadioButton)findViewById(R.id.btn_female);
         btn_signup=(Button)findViewById(R.id.btn_signup);
         txt_signup=(TextView)findViewById(R.id.txt_signup);
+        edt_phone=(EditText)findViewById(R.id.edt_phone);
+
 
         rg_gender=(RadioGroup)findViewById(R.id.rg_gender);
 
@@ -66,7 +68,8 @@ public class MainActivity extends AppCompatActivity implements DataInterface {
 
         btn_signup.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(View v)
+                {
 
                 if (!Commonfunction.checkString(edt_firstname.getText().toString())) {
                     edt_firstname.setError("Enter Firstname");
@@ -103,6 +106,11 @@ public class MainActivity extends AppCompatActivity implements DataInterface {
                     return;
                 }
 
+                    if (!Commonfunction.checkMobileNo(edt_phone.getText().toString())) {
+                        edt_phone.setError("please enter phonenumber");
+                        return;
+                    }
+
                 if (!Commonfunction.checkString(gender))
                 {
                     Toast.makeText(MainActivity.this, "Please select Gender", Toast.LENGTH_SHORT).show();
@@ -120,6 +128,7 @@ public class MainActivity extends AppCompatActivity implements DataInterface {
                 params.put("AGE",edt_age.getText().toString());
                 params.put("CLIENT_PIC","");
                 params.put("GENDER",gender);
+                params.put("PHONE",edt_phone.getText().toString());
 
                 volley.CallVolley(url,params,"registration.php");
 

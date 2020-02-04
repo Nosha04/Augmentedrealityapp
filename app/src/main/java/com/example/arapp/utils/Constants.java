@@ -6,7 +6,7 @@ package com.example.arapp.utils;
 public class Constants {
 
 
-   public static final String Webserive_Url="http://192.168.2.12/Project_AR/API/";
+   public static final String Webserive_Url="http://192.168.43.73/Project_AR/API/";
 
    public static final String IMAGE_Url="http://192.168.1.3/Nutrition_Diet_App/Uploads/";
    //public static final String Webserive_Url="http://nutritiondiet.kstechnologies.co/api/";
