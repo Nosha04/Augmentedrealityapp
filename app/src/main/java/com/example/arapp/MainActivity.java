@@ -81,10 +81,11 @@ public class MainActivity extends AppCompatActivity implements DataInterface {
                     return;
                 }
 
-                if (!Commonfunction.checkString(edt_age.getText().toString())) {
+
+                /* (!Commonfunction.checkString(edt_age.getText().toString())) {
                     edt_age.setError("Enter your age");
                     return;
-                }
+                }*/
 
                 if (!Commonfunction.checkPassword(edt_address.getText().toString())) {
                     edt_address.setError("Enter address");
@@ -125,7 +126,8 @@ public class MainActivity extends AppCompatActivity implements DataInterface {
                 params.put("ADDRESS",edt_address.getText().toString());
                 params.put("E_MAIL",edt_email.getText().toString());
                 params.put("PASSWORD",edt_password.getText().toString());
-                params.put("AGE",edt_age.getText().toString());
+//                params.put("AGE",edt_age.getText().toString());
+                params.put("AGE","0");
                 params.put("CLIENT_PIC","");
                 params.put("GENDER",gender);
                 params.put("PHONE",edt_phone.getText().toString());

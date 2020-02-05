@@ -24,7 +24,7 @@ public class LoginActivity extends AppCompatActivity implements DataInterface {
 
     EditText edt_email,edt_password;
     Button btn_login;
-    TextView txt_login,txt_signup,txt_forgetpassword;
+    TextView txt_signup,txt_forgetpassword;
 
     Webservice_Volley volley;
 
@@ -39,7 +39,6 @@ public class LoginActivity extends AppCompatActivity implements DataInterface {
         edt_email=(EditText)findViewById(R.id.edt_email);
         edt_password=(EditText)findViewById(R.id.edt_password);
         btn_login=(Button)findViewById(R.id.btn_login);
-        txt_login=(TextView)findViewById(R.id.txt_login);
         txt_forgetpassword=(TextView)findViewById(R.id.txt_forgetpassword);
         txt_signup=(TextView)findViewById(R.id.txt_signup);
 

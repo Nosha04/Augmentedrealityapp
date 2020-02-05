@@ -7,7 +7,8 @@
     tools:context=".Verification"
     android:orientation="vertical"
     android:gravity="center"
-    android:padding="20dp">
+    android:padding="20dp"
+    android:background="@color/black">
 
     <TextView
         android:id="@+id/txt_verification"
@@ -16,8 +17,9 @@
         android:text="Verification"
         android:gravity="center"
         android:textSize="30dp"
-        android:textColor="@android:color/black"
-        android:textStyle="bold"/>
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        android:textColorHint="#80ffffff" />
 
 
     <LinearLayout
@@ -29,11 +31,12 @@
         <EditText
             android:id="@+id/edt_num1"
             android:layout_width="wrap_content"
-            android:layout_height="50dp"
+            android:layout_height="66dp"
             android:layout_weight="1"
             android:ems="10"
             android:inputType="number"
-            android:layout_marginLeft="16dp"/>
+            android:layout_marginLeft="16dp"
+            android:backgroundTint="@color/white"/>
 
         <EditText
             android:id="@+id/edt_num2"
@@ -44,7 +47,9 @@
             android:inputType="number"
             android:maxLength="1"
             android:gravity="center"
-            android:layout_marginLeft="16dp"/>
+            android:layout_marginLeft="16dp"
+            android:backgroundTint="@color/white"/>
+
 
         <EditText
             android:id="@+id/edt_num3"
@@ -55,7 +60,10 @@
             android:inputType="number"
             android:maxLength="1"
             android:gravity="center"
-            android:layout_marginLeft="16dp"/>
+            android:layout_marginLeft="16dp"
+            android:backgroundTint="@color/white"/>
+
+
 
         <EditText
             android:id="@+id/edt_num4"
@@ -65,13 +73,22 @@
             android:ems="10"
             android:inputType="number"
             android:maxLength="1"
-            android:gravity="center"/>
+            android:gravity="center"
+            android:backgroundTint="@color/white"/>
+
     </LinearLayout>
 
     <Button
         android:id="@+id/btn_verify"
+        android:fontFamily="@font/open_sans_bold"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:textSize="13.4sp"
+        android:padding="20dp"
+        android:letterSpacing="0.5"
         android:text="Verify"
-        android:layout_marginTop="20dp"/>
+        android:background="@drawable/rect_whitefull"
+        android:gravity="center"
+        android:layout_marginTop="38.3dp" />
 </LinearLayout>

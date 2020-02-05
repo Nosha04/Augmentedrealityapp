@@ -7,7 +7,8 @@
     tools:context=".Complain"
     android:padding="20dp"
     android:orientation="vertical"
-    android:gravity="center">
+    android:gravity="center"
+    android:background="@color/black">
 
     <TextView
         android:id="@+id/txt_complain"
@@ -16,17 +17,20 @@
         android:text="Complain Page"
         android:gravity="center"
         android:textSize="30dp"
-        android:textColor="@android:color/black"
         android:textStyle="bold"
-        android:paddingBottom="50dp"/>
+        android:textColor="@color/white"
+        android:textColorHint="#80ffffff" />
 
     <TextView
         android:id="@+id/txt_builder"
+        android:fontFamily="@font/roboto_light"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Builder"
-        android:layout_marginTop="20dp"
-        android:layout_gravity="left"/>
+        android:textSize="13.4sp"
+        android:textColor="#ffffff"
+        android:backgroundTint="@color/white"
+        android:layout_marginTop="18.9dp"/>
 
 
     <Spinner
@@ -35,15 +39,26 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:layout_gravity="left"
-        android:hint="Builder Name" />
+        android:hint="Builder Name"
+        android:backgroundTint="@color/white"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_marginTop="9dp"
+        android:background="#E6ffffff" />
+
 
     <TextView
         android:id="@+id/txt_detail"
+        android:fontFamily="@font/roboto_light"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Details"
-        android:layout_marginTop="20dp"
-        android:layout_gravity="left"/>
+        android:textSize="13.4sp"
+        android:textColor="#ffffff"
+        android:layout_marginTop="18.9dp"
+        android:backgroundTint="@color/white"/>
 
     <EditText
         android:id="@+id/edt_complain"
@@ -55,14 +70,27 @@
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
         android:scrollbars="vertical"
-        android:layout_marginTop="20dp"/>
+        android:layout_marginTop="20dp"
+        android:backgroundTint="@color/black"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_marginTop="9dp"
+        android:background="#E6ffffff" />
 
     <Button
         android:id="@+id/btn_submit"
+        android:fontFamily="@font/open_sans_bold"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:textSize="13.4sp"
+        android:padding="20dp"
+        android:letterSpacing="0.5"
         android:text="Submit"
-        android:layout_marginTop="20dp"
-        android:layout_gravity="center"/>
+        android:background="@drawable/rect_whitefull"
+        android:gravity="center"
+        android:layout_marginTop="38.3dp" />
 
 </LinearLayout>
