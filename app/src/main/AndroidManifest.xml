@@ -15,6 +15,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
+        <activity android:name=".builderSignup"></activity>
+        <activity android:name=".Inquiry" />
         <activity
             android:name=".HomepageActivity"
             android:label="@string/title_activity_homepage">
@@ -23,11 +25,10 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity>
-        <activity android:name=".edit"></activity>
-        <activity android:name=".profile"></activity>
-        <activity android:name=".Complain"></activity>
+        <activity android:name=".edit" />
+        <activity android:name=".profile" />
+        <activity android:name=".Complain" />
         <activity android:name=".Feedback" />
         <activity
             android:name=".applayout"
@@ -35,8 +36,7 @@
         <activity android:name=".Verification" />
         <activity android:name=".ResetPassword" />
         <activity android:name=".forgetpassword" />
-        <activity android:name=".LoginActivity">
-        </activity>
+        <activity android:name=".LoginActivity" />
         <activity android:name=".MainActivity" />
     </application>
 
